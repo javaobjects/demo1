@@ -62,6 +62,5 @@ public class RegisterServlet extends HttpServlet {
 			System.out.println("sex:" + sex);
 			String province = request.getParameter("province");
 			System.out.println("province:" + province);
-
 	}
 }
