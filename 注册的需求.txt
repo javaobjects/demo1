@@ -1,0 +1,25 @@
+注册的需求：
+
+技术实现：
+
+1.建表
+----创建用户表Users
+---id username xingqu sex province
+create table tab_users
+(
+        col_id number(3) primary key,
+        col_username varchar2(20),
+        col_xingqu varchar2(50),
+        col_sex number(1),
+        col_province varchar2(30)
+)
+
+2.编写DBUtils工具类  √
+
+3.编写Dao√
+
+4.编写service√
+
+5.servlet调用service功能测试
+
+6.servlet拿到注册是否成功的结果后提示用户注册结果
