@@ -1,6 +1,8 @@
 package net.alibaba.demo1.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,16 +36,32 @@ public class RegisterServlet extends HttpServlet {
 		 * getHeader方法 getHeaders方法 getHeaderNames方法
 		 */
 		
-		  System.out.println("===============================");
-		  System.out.println(request.getRequestURL());
-		  System.out.println(request.getRequestURI());
-		  System.out.println(request.getQueryString());
-		  System.out.println(request.getRemoteAddr());
-		  System.out.println(request.getRemoteHost());
-		  System.out.println(request.getRemotePort());
-		  System.out.println(request.getLocalAddr());
-		  System.out.println(request.getLocalName()); System.out.println();
-		  System.out.println(); System.out.println(); System.out.println();
+		/*
+		 * System.out.println("===============================");
+		 * System.out.println(request.getRequestURL());
+		 * System.out.println(request.getRequestURI());
+		 * System.out.println(request.getQueryString());
+		 * System.out.println(request.getRemoteAddr());
+		 * System.out.println(request.getRemoteHost());
+		 * System.out.println(request.getRemotePort());
+		 * System.out.println(request.getLocalAddr());
+		 * System.out.println(request.getLocalName()); System.out.println();
+		 * System.out.println(); System.out.println(); System.out.println();
+		 */
+		  
+			// 获取表单数据：id username xingqu sex province
+			System.out.println(request.getRemoteHost());
+			String id = request.getParameter("id");
+			System.out.println("id:" + id);
+			String username = request.getParameter("username");
+			System.out.println("username:" + username);
+			String[] xingqu = request.getParameterValues("xingqu");
+			System.out.println("xingqu:" + Arrays.toString(xingqu));
+
+			String sex = request.getParameter("sex");
+			System.out.println("sex:" + sex);
+			String province = request.getParameter("province");
+			System.out.println("province:" + province);
 
 	}
 }
