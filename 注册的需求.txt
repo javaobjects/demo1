@@ -5,7 +5,7 @@
 1.建表
 ----创建用户表Users
 ---id username xingqu sex province
-create table tab_users
+create table demo1_users
 (
         col_id number(3) primary key,
         col_username varchar2(20),
