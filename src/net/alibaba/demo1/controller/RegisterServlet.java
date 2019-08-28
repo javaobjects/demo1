@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.alibaba.demo1.domain.Users;
+import net.alibaba.demo1.service.ifac.ServiceFactory;
 import net.alibaba.demo1.service.ifac.UserServiceIfac;
 import net.alibaba.demo1.service.impl.UserServiceImpl;
 
@@ -71,7 +72,8 @@ public class RegisterServlet extends HttpServlet {
 			int sex_value=sex.equals("男")?1:0;
 			
 			Users user=new Users(Integer.parseInt(id), username, Arrays.toString(xingqu),sex_value , province);
-			UserServiceIfac userService=new UserServiceImpl();
+//			UserServiceIfac userService=new UserServiceImpl();
+			UserServiceIfac userService = ServiceFactory.getUserServiceInstance();
 			boolean result=userService.register(user);
 			response.setCharacterEncoding("utf-8");
 			response.setContentType("text/html;charset=utf-8");
