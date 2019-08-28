@@ -86,7 +86,10 @@ public class RegisterServlet extends HttpServlet {
 			
 			int sex_value=sex.equals("男")?1:0;
 			
-			Users user=new Users(Integer.parseInt(id), username, Arrays.toString(xingqu),sex_value , province);
+			Users user=new Users(Integer.parseInt(id), username, sb_xingqu.toString(),sex_value , province);
+			
+			
+			
 //			UserServiceIfac userService=new UserServiceImpl();
 			UserServiceIfac userService = ServiceFactory.getUserServiceInstance();
 			boolean result=userService.register(user);
