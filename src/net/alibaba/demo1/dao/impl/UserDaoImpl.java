@@ -3,14 +3,25 @@ package net.alibaba.demo1.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import net.alibaba.demo1.dao.ifac.UserDaoIfac;
 import net.alibaba.demo1.domain.Users;
 import net.alibaba.demo1.util.DBUtils;
 
-public class UserDaoImpl {
+public class UserDaoImpl implements UserDaoIfac {
 
 	private static final String ADD_USER = "insert into demo1_users(col_id,col_username,col_xingqu,col_sex,col_province)"
 			+ " values (?,?,?,?,?)";
 	
+	/* (non-Javadoc)  
+	 * <p>Title: addUser</p>  
+	 * <p>
+	 *	Description: 
+	 * </p> 
+	 * @param user
+	 * @return  
+	 * @see net.alibaba.demo1.dao.impl.UserDaoIfac#addUser(net.alibaba.demo1.domain.Users)  
+	 */
+	@Override
 	public int addUser(Users user) {
 		int rows = 0;
 		
