@@ -61,7 +61,22 @@ public class RegisterServlet extends HttpServlet {
 			System.out.println("id:" + id);
 			String username = request.getParameter("username");
 			System.out.println("username:" + username);
-			String[] xingqu = request.getParameterValues("xingqu");
+			String[] xingqu = request.getParameterValues("xingqu");//["lanqiu","zuqiu","paiqiu"]--->lanqiu,zuqiu,paiqiu
+			
+			StringBuffer sb_xingqu=new StringBuffer("");
+			//需求：["lanqiu","zuqiu","paiqiu"]--->lanqiu,zuqiu,paiqiu
+			for (int i = 0; i < xingqu.length; i++) {
+				sb_xingqu.append(xingqu[i]);
+				if(i==xingqu.length-1)
+				{
+					break;
+				}
+				sb_xingqu.append(",");
+			}
+			System.out.println("sb_xingqu:"+sb_xingqu);
+			
+			
+			
 			System.out.println("xingqu:" + Arrays.toString(xingqu));
 
 			String sex = request.getParameter("sex");
