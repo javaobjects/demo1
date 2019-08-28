@@ -1,6 +1,7 @@
 package net.alibaba.demo1.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 import javax.servlet.ServletException;
@@ -8,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.alibaba.demo1.domain.Users;
+import net.alibaba.demo1.service.ifac.UserServiceIfac;
+import net.alibaba.demo1.service.impl.UserServiceImpl;
 
 /**
  * Servlet implementation class Register
@@ -62,5 +67,21 @@ public class RegisterServlet extends HttpServlet {
 			System.out.println("sex:" + sex);
 			String province = request.getParameter("province");
 			System.out.println("province:" + province);
+			
+			int sex_value=sex.equals("男")?1:0;
+			
+			Users user=new Users(Integer.parseInt(id), username, Arrays.toString(xingqu),sex_value , province);
+			UserServiceIfac userService=new UserServiceImpl();
+			boolean result=userService.register(user);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter pw=response.getWriter();
+			if(result)
+			{
+				pw.println("<script>alert('register success');</script>");
+			}else
+			{
+				pw.println("<script>alert('register fail');</script>");
+			}
 	}
 }
